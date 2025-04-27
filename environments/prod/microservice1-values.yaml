@@ -1,26 +1,26 @@
-image:
-  repository: myregistry/notification-service
-  tag: "1.0.0"
-replicaCount: 3
-service:
-  type: ClusterIP
-  port: 80
-ingress:
-  enabled: true
-  annotations:
-    kubernetes.io/ingress.class: "alb"
-  hosts:
-    - host: notification-service.prod.example.com
-      paths:
-        - /
-  tls:
-    - secretName: notification-service-tls
-      hosts:
-        - notification-service.prod.example.com
-resources:
-  limits:
-    cpu: "500m"
-    memory: "512Mi"
-  requests:
-    cpu: "250m"
-    memory: "256Mi"
+# image:
+#   repository: myregistry/notification-service
+#   tag: "1.0.0"
+# replicaCount: 3
+# service:
+#   type: ClusterIP
+#   port: 80
+# ingress:
+#   enabled: true
+#   annotations:
+#     kubernetes.io/ingress.class: "alb"
+#   hosts:
+#     - host: notification-service.prod.example.com
+#       paths:
+#         - /
+#   tls:
+#     - secretName: notification-service-tls
+#       hosts:
+#         - notification-service.prod.example.com
+# resources:
+#   limits:
+#     cpu: "500m"
+#     memory: "512Mi"
+#   requests:
+#     cpu: "250m"
+#     memory: "256Mi"
