@@ -1,24 +1,18 @@
-image:
-  repository: nginx
-  tag: latest
-
-service:
-  type: ClusterIP
-  port: 80
-
-replicaCount: 2
-
-resources:
-  limits:
-    cpu: "500m"
-    memory: "512Mi"
-  requests:
-    cpu: "250m"
-    memory: "256Mi"
-
-ingress:
-  enabled: true
-  path: /
-  host: notification-service.dev.example.com
-  annotations:
-    kubernetes.io/ingress.class: "alb"
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/YadinDeri/gitops-test.git # 👈 your GitHub repo
+    targetRevision: main
+    path: nginxapp # 👈 I will explain about this path in a second
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: nginxapp
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
