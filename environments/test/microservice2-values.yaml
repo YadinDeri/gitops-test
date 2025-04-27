@@ -1,0 +1,23 @@
+# image:
+#   repository: myregistry/order-service
+#   tag: test
+# replicaCount: 2
+# service:
+#   type: ClusterIP
+#   port: 8080
+# ingress:
+#   enabled: true
+#   host: order-service.test.example.com
+#   path: /
+#   annotations:
+#     kubernetes.io/ingress.class: alb
+# resources:
+#   limits:
+#     cpu: "500m"
+#     memory: "512Mi"
+#   requests:
+#     cpu: "250m"
+#     memory: "256Mi"
+# env:
+#   DATABASE_URL: "postgres://user:password@db:5432/orderdb"
+#   LOG_LEVEL: "info"

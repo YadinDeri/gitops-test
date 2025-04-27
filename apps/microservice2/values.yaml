@@ -1,0 +1,29 @@
+image:
+  repository: myregistry/order-service
+  tag: latest
+
+service:
+  name: order-service
+  type: ClusterIP
+  port: 8080
+  targetPort: 8080
+
+ingress:
+  enabled: true
+  path: /
+  host: order-service.example.com
+
+resources:
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+  requests:
+    cpu: "250m"
+    memory: "256Mi"
+
+replicaCount: 2
+
+environment:
+  NODE_ENV: production
+
+# Add any additional configuration options below as needed.

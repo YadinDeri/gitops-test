@@ -1,0 +1,25 @@
+image:
+  repository: myregistry/payment-service
+  tag: latest
+
+service:
+  type: ClusterIP
+  port: 8080
+
+resources:
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+  requests:
+    cpu: "250m"
+    memory: "256Mi"
+
+replicaCount: 2
+
+ingress:
+  enabled: true
+  path: /
+  host: payment-service.dev.example.com
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing

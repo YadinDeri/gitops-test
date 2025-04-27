@@ -1,0 +1,30 @@
+name: notification-service
+replicaCount: 1
+
+image:
+  repository: your-repo/notification-service
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  name: ""
+  path: /
+  pathType: ImplementationSpecific
+  hosts:
+    - host: chart-example.local
+      paths:
+        - /
+  tls: []  # Treated as an array of objects
+
+resources: {}
+  
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

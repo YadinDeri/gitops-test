@@ -1,0 +1,24 @@
+image:
+  repository: myregistry/notification-service
+  tag: latest
+
+service:
+  type: ClusterIP
+  port: 80
+
+replicaCount: 2
+
+resources:
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+  requests:
+    cpu: "250m"
+    memory: "256Mi"
+
+ingress:
+  enabled: true
+  path: /
+  host: notification-service.dev.example.com
+  annotations:
+    kubernetes.io/ingress.class: "alb"
