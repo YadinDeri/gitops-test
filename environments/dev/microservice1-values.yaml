@@ -1,5 +1,5 @@
 image:
-  repository: myregistry/notification-service
+  repository: nginx
   tag: latest
 
 service:
